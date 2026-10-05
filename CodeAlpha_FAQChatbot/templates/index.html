@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CodeAlpha FAQ Bot</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">CA</div>
+        <div>
+          <h1>CodeAlpha</h1>
+          <span>FAQ Assistant</span>
+        </div>
+      </div>
+
+      <p class="sidebar-desc">
+        Ask me anything about the CodeAlpha internship — tasks, certificates,
+        submissions, and more.
+      </p>
+
+      <div class="suggestions">
+        <span class="suggestions-label">Try asking</span>
+        <button class="suggestion-chip" data-q="How many tasks do I need to complete?">How many tasks do I need to complete?</button>
+        <button class="suggestion-chip" data-q="Will I get a certificate?">Will I get a certificate?</button>
+        <button class="suggestion-chip" data-q="Where do I submit my task?">Where do I submit my task?</button>
+        <button class="suggestion-chip" data-q="How do I contact support?">How do I contact support?</button>
+      </div>
+
+      <button id="viewAllFaqs" class="ghost-btn">📋 View all FAQs</button>
+    </aside>
+
+    <!-- Chat panel -->
+    <main class="chat-panel">
+      <header class="chat-header">
+        <div class="bot-avatar">🤖</div>
+        <div>
+          <h2>FAQ Bot</h2>
+          <span class="status"><i class="dot"></i> Online</span>
+        </div>
+      </header>
+
+      <div id="chatWindow" class="chat-window">
+        <!-- messages injected here -->
+      </div>
+
+      <form id="chatForm" class="chat-input-bar" autocomplete="off">
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Type your question here..."
+          maxlength="300"
+        />
+        <button type="submit" id="sendBtn" aria-label="Send">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2 11 13" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 2 15 22 11 13 2 9 22 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+    </main>
+  </div>
+
+  <!-- FAQ modal -->
+  <div id="faqModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>All FAQs</h3>
+        <button id="closeModal" class="close-btn">&times;</button>
+      </div>
+      <div id="faqList" class="faq-list"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
